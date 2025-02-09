@@ -1,0 +1,12 @@
+python ./lime/main.py \
+--model_path /home/pureblackkkk/b2t-master/model/best_model_CelebA_erm.pth \
+--img_data_dir /home/pureblackkkk/my_volume/concept-lime-data/revert_celebA_equal_2000_Feb_7/celeba_best_model_CelebA_erm_not_blond_without_class \
+--csv_path /home/pureblackkkk/concept-lime/data/disturb_celebA_equal_2000_Feb_7/celeba_best_model_CelebA_erm_not_blond.csv \
+--batch_size 10 \
+--num_workers 4 \
+--add_cos_sim_weights \
+--dataset_name CelebA \
+--class_name all \
+--meta_data_path /home/pureblackkkk/my_volume/celebA/CelebA/Anno/list_attr_celeba.txt \
+--img_src_dir /home/pureblackkkk/my_volume/celebA/CelebA/Img/img_align_celeba \
+--gradcam

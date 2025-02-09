@@ -1,0 +1,46 @@
+start: Given a set of input elements,
+special_demands:
+  short: generate a concise, clear and short image caption or description that best represents the visual scene.
+  long:
+  celebA: generate a concise, clear and short image caption or description that best represents the visual scene. If a person appears in the scene, their **hair description must be explicitly included**. Hair must not be blonde or golden. Instead, describe their hair as dark brown, black, auburn, or any other natural darker shade. Maintain a vivid and coherent description of the scene.
+general_demands:
+  - The caption should capture the main characteristics of the image while remaining relevant to the provided elements.
+  - All the input elements must be used in the caption or description.
+  - Do not ask if further clarification is needed. Just provide the result directly!
+input_beginning: 'Input Elements:'
+output_beginning: 'Generated Caption/Description:'
+shots:
+  short:
+    - elements:
+        - Rain
+        - City streets
+        - Neon lights
+      caption: A quiet evening rain falls over the city streets, reflecting the vibrant glow of neon lights, creating a colorful, tranquil atmosphere.
+    - elements:
+        - Snow
+        - Forest
+        - Deer
+      caption: A soft blanket of snow covers the forest floor, while a lone deer gently steps through the trees, adding to the serene winter scene.
+    - elements:
+        - Sunset
+        - Desert
+        - Camel
+      caption: The sun sets behind the vast desert, casting long shadows across the sand as a lone camel slowly makes its way toward the horizon.
+  long:
+  celebA:
+    - elements:
+        - Warrior
+        - Armor
+        - Sword
+        - Mountain
+      caption: A warrior with black hair in armor stands on a mountain top, holding a sword. The sunset paints the sky.
+    - elements:
+        - Woman
+        - Garden
+        - Dress
+      caption: A woman with dark brown hair stands in a garden, wearing a white dress. Sunlight filters through the trees.
+    - elements:
+        - Man
+        - Park
+        - Sportswear
+      caption: A man with short dark hair runs in a park, wearing sportswear. Sunlight casts long shadows.

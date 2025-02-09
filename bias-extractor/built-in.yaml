@@ -1,0 +1,7 @@
+dataset: 
+  - waterbird
+  - celebA
+
+model: 
+  - best_model_Waterbirds_erm.pth
+  - best_model_CelebA_erm.pth
