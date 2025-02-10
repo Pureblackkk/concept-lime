@@ -1,5 +1,5 @@
 from tqdm import tqdm
-from typing import Any
+from typing import Any, Callable
 import os
 import torch
 import pandas as pd
@@ -16,6 +16,7 @@ class MyDataset(Dataset):
         img_data_dir: str,
         csv_path: str,
         transform = None,
+        file_list_filer: Callable[[list], list] = None
     ):
         self.data_dir = img_data_dir
         self.transform = transform
@@ -23,6 +24,8 @@ class MyDataset(Dataset):
 
         # Read file names form data_dir
         self.file_list = os.listdir(self.data_dir)
+        if file_list_filer:
+            self.file_list = file_list_filer(self.file_list)
 
     def __len__(self):
         return len(self.file_list)
@@ -76,7 +79,7 @@ def get_transformer(dataset_name: str, is_processing_revert: bool = True):
 
 def create_img_data_loader(**kwargs):
     # Dataset params
-    preprocess = get_transformer(kwargs.get('dataset_name'))
+    preprocess = get_transformer(kwargs.get('dataset_name'), kwargs.get('is_processing_revert', True))
     img_data_dir = kwargs.get('img_data_dir')
     csv_path = kwargs.get('csv_path')
 
@@ -87,7 +90,8 @@ def create_img_data_loader(**kwargs):
     data_set = MyDataset(
         img_data_dir,
         csv_path,
-        preprocess
+        preprocess,
+        kwargs.get('file_filter', None),
     )
 
     return DataLoader(
@@ -95,7 +99,7 @@ def create_img_data_loader(**kwargs):
         batch_size=batch_size,
         num_workers=num_workers,
         shuffle=False,
-        drop_last=False
+        drop_last=False,
     )
 
 def load_classify_model(model_path: str):
