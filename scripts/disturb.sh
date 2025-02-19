@@ -1,6 +1,7 @@
 python ./disturb/main.py \
---src_dir ./keyword/celebA_keyword/ \
---sample_num 2000 \
---template_type celebA \
---shots_num 3 \
---save_dir ./data/disturb_celebA_equal_2000_Feb_7/
+--src_dir ./keyword/waterbird_gpt_cluster/ \
+--sample_num 1000 \
+--template_type short \
+--shots_num 4 \
+--disturb_method concept_class \
+--save_dir ./data/disturb_waterbird_concept_class_1000_Feb_14/

@@ -5,12 +5,17 @@ special_demands:
   celebA: generate a concise, clear and short image caption or description that best represents the visual scene. If a person appears in the scene, their **hair description must be explicitly included**. Hair must not be blonde or golden. Instead, describe their hair as dark brown, black, auburn, or any other natural darker shade. Maintain a vivid and coherent description of the scene.
 general_demands:
   - The caption should capture the main characteristics of the image while remaining relevant to the provided elements.
+  - Also the caption should focus strictly on the provided keywords and detailing aspects without introducing new concepts.
   - All the input elements must be used in the caption or description.
   - Do not ask if further clarification is needed. Just provide the result directly!
 input_beginning: 'Input Elements:'
 output_beginning: 'Generated Caption/Description:'
 shots:
   short:
+    - elements:
+      - Beach
+      - Sunrise
+      caption: A serene beach at sunrise with soft golden light.
     - elements:
         - Rain
         - City streets
@@ -22,10 +27,11 @@ shots:
         - Deer
       caption: A soft blanket of snow covers the forest floor, while a lone deer gently steps through the trees, adding to the serene winter scene.
     - elements:
-        - Sunset
-        - Desert
-        - Camel
-      caption: The sun sets behind the vast desert, casting long shadows across the sand as a lone camel slowly makes its way toward the horizon.
+        - Coffee
+        - Cozy
+        - Rain
+        - Window
+      caption: A cozy room with a cup of coffee on the table and rain gently falling outside the window.
   long:
   celebA:
     - elements:

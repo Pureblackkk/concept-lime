@@ -18,6 +18,9 @@ def parse_args():
     parser.add_argument("--b2t_save_result", default=True)
     parser.add_argument("--b2t_cal_score", default=False)
     parser.add_argument("--b2t_keyword_res_dir", type=str, default=None)
+    
+    # Post process keyword
+    parser.add_argument("--concept_cluster", action='store_true')
     args = parser.parse_args()
     return args
 
@@ -43,7 +46,7 @@ if __name__ == '__main__':
 
     # Save keyword if necessary
     if args.save_keyword:
-        MyKeywordCollector.save_keyword()
+        MyKeywordCollector.save_keyword(args.concept_cluster)
 
 
 

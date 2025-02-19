@@ -11,6 +11,7 @@ def parse_args():
     parser.add_argument("--save_dir", type=str, default='./data/disturb/')
 
     # Generate caption prompt based on disturb result
+    parser.add_argument("--disturb_method", type=str, default='equal')
     parser.add_argument("--model_name", type=str, default='Meta-Llama-3-8B-Instruct.Q4_0.gguf')
     parser.add_argument("--generate_prompt", type=bool, default=True)
     parser.add_argument("--prompt_with_class", type=bool, default=False)
@@ -31,6 +32,7 @@ if __name__ == '__main__':
     
     # Disturb and save the result
     MyDataDisturbing.disturbing(
+        disturb_method=args.disturb_method,
         sample_num = args.sample_num,
         generate_prompt=args.generate_prompt,
         template_type=args.template_type,
